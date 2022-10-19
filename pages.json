@@ -13,15 +13,36 @@
 		   },
 		 { 
 		   "path": "pages/cate/cate",
-		   "style": {}
+		   "style": {
+			   "navigationBarBackgroundColor":"#007AFF",
+			   "navigationBarTextStyle":"white",
+			   "navigationBarTitleText":"分类",
+			   "enablePullDownRefresh":true,
+			   "backgroundColor":"#f6f6f6",
+			   "backgroundTextStyle":"dark"
+		   }
 		 }
         ,{
             "path" : "pages/cart/cart",
-            "style" :{} 
+            "style" :{
+				"navigationBarBackgroundColor":"#007AFF",
+				"navigationBarTextStyle":"white",
+				"navigationBarTitleText":"购物车",
+				"enablePullDownRefresh":true,
+				"backgroundColor":"#f6f6f6",
+				"backgroundTextStyle":"dark"
+			} 
 		  }
         ,{
     "path": "pages/my/my",
-    "style": {}
+    "style": {
+		"navigationBarBackgroundColor":"#007AFF",
+		"navigationBarTextStyle":"white",
+		"navigationBarTitleText":"我的",
+		"enablePullDownRefresh":true,
+		"backgroundColor":"#f6f6f6",
+		"backgroundTextStyle":"dark"
+	}
   }
         ,{
             "path" : "subpkg/goods_detail/goods_detail",
