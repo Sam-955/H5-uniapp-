@@ -1,5 +1,6 @@
 <template>
   <view>
+	  <my-search @search="handleNavi"></my-search>
     <!-- 轮播图的区域 -->
     <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
       <swiper-item v-for="(item, i) in swiperList" :key="i">
@@ -92,7 +93,10 @@
           })
         })
         this.floorList = res.message
-      }
+      },
+	  handleNavi(){
+		  uni.navigateTo({url:'/subpkg/goods_search/goods_search'})
+	  }
     }
   }
 </script>

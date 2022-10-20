@@ -52,7 +52,16 @@
                 "enablePullDownRefresh": false
             }
             
+        },{
+            "path" : "subpkg/goods_search/goods_search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
         }
+		
     ],
 	"tabBar":{
 		"selectedColor": "#007AFF",
@@ -81,7 +90,7 @@
         "selectedIconPath": "static/tab_icons/my-active.png"
       }]
 	}
-	  ,
+ ,
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

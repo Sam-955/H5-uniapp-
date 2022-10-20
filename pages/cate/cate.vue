@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<my-search> </my-search>
 		<view  class='container'>
 			 <scroll-view scroll-y="true" class="left" :style="{height:`${wh}px`}" >
 				   <view :class="['left-scroll-view-item',index==activeId?'active':'']" @click="tapCate(index,item)" v-for="(item,index) in cateList" :key="item.cat_id">{{item.cat_name}}</view>
@@ -55,7 +56,7 @@
 		onLoad(){
 			console.log("1231465")
 			const sysInfo=uni.getSystemInfoSync()
-			this.wh=sysInfo.windowHeight
+			this.wh=sysInfo.windowHeight-50
 			this.getCateList()
 		}
 	}
