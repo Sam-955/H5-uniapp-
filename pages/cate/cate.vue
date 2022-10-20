@@ -14,7 +14,7 @@
 					 
                      <view class='level3'>
 						 <navigator v-for="(item3,index3) in item2.children" :key="item3.cat_id" class="subContent"
-						 :url="'/subpkg/goods_detail/goods_detail?goods_id=' + item3.cat_id"
+						 :url="'/subpkg/goods_list/goods_list?cid=' + item3.cat_id"
 						 >
 						      <image :src="item3.cat_icon" class="icon"></image>
 							   <view style="width:100%;text-align:center">{{item3.cat_name}}</view>

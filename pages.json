@@ -48,7 +48,9 @@
             "path" : "subpkg/goods_detail/goods_detail",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+				"navigationBarBackgroundColor":"#007AFF",
+				"navigationBarTextStyle":"white",
+                "navigationBarTitleText": "商品详情",
                 "enablePullDownRefresh": false
             }
             
@@ -56,12 +58,27 @@
             "path" : "subpkg/goods_search/goods_search",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+				"navigationBarBackgroundColor":"#007AFF",
+				"navigationBarTextStyle":"white",
+                "navigationBarTitleText": "商品搜索",
                 "enablePullDownRefresh": false
             }
             
         }
 		
+        ,{
+            "path" : "subpkg/goods_list/goods_list",
+            "style" :                                                                                    
+            {
+				"navigationBarBackgroundColor":"#007AFF",
+				"navigationBarTextStyle":"white",
+                "navigationBarTitleText": "商品列表",
+                "enablePullDownRefresh": true,
+				"onReachBottomDistance":150,
+				"backgroundColor":"#f8f8f8"
+            }
+            
+        }
     ],
 	"tabBar":{
 		"selectedColor": "#007AFF",

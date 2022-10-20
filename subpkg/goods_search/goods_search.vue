@@ -20,7 +20,7 @@
 				<uni-icons type="trash" size='17' @click="clearSearchHistory()"></uni-icons>
 			</view>
 			<view>
-				<uni-tag style="padding:0 10px" type="success" :text="item" v-for="(item,index) in historyList" :key="index" ></uni-tag>
+				<uni-tag style="padding:0 10px"  type="success" :text="item" v-for="(item,index) in historyList" :key="index" ></uni-tag>
 		    </view>
 		</view>
 	</view>
