@@ -111,7 +111,9 @@
 		},
 		onHide(){
 			clearTimeout(this.interValTimer)
-		}
+		},
+		// 下拉重置数据 刷新页面
+		
 	}
 </script>
 

@@ -73,8 +73,14 @@
 			tofixed(num){
 				return Number(num).toFixed(2)
 			}
-		}
-		
+		},
+		onPullDownRefresh(){
+			this.queryObj.pagenum=1
+			this.total=0
+			this.isLoading=true
+			this.goodsList=[]
+			this.getGoodsList()
+		},
 	}
 </script>
 
