@@ -1,14 +1,15 @@
 <template>
-	<view>
+	<view v-if="cart.lenght>0">
 		<!-- 地址栏 -->
-		<view style='display:flex;justify-content:center;align-items:center;height:100px;border-bottom:1px solid lightgray'>
+		<my-address></my-address>
+		<!-- <view style='display:flex;justify-content:center;align-items:center;height:100px;border-bottom:1px solid lightgray'>
 			<button type="primary" 
 			style="color: white;
                 width: 170px;
                 height: 40px;
                 font-size: 16px"
 				>请选择收货地址+</button>
-		</view>
+		</view> -->
 		<!-- 商品item 栏 -->
 		<view>
 			<view style="border-bottom:1px solid #efefef;height:40px;line-height:40px;padding-left:10px;font-size:16px">
@@ -25,18 +26,11 @@
 			
 		</view>
 		<!-- 选择结算栏 -->
-		<view class="bottom">
-			<view class="left">
-				<radio :checked="false" color="#C00000"></radio>
-				全选
-			</view >
-			<view class='middle'>
-				合计:<text style="color:red">￥0.00</text>
-			</view>
-			<view class="right">
-                <text style="">结算(0)</text>
-			</view>
-		</view>
+		<my-settle></my-settle>
+	</view>
+	<view v-else class='empty-cart'>
+		 <image src="/static/cart_empty@2x.png" class="empty-img"></image>
+		    <text class="tip-text">空空如也~</text>
 	</view>
 </template>
 
@@ -92,33 +86,24 @@
 
 <style lang="scss">
 	
-	
-	.bottom{
-		height:60px;
-		display:flex;
-		position:fixed;
-		bottom:0;
-		left:0;
-		margin-left:5px;
-		.left{
-			width:250rpx;
-			line-height:60px;
-			height:60px;
-		}
-		.middle{
-		 	line-height:60px;
-			height:60px;
-			width:300rpx;
-		};
-		.right{
-			width:200rpx;
-			background:red;
-			color:white;
-			text-align:center;
-			heigth:60px;
-			line-height:60px
-		}
-	}
+	.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+
+  .empty-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .tip-text {
+    font-size: 12px;
+    color: gray;
+    margin-top: 15px;
+  }
+}
+
 	
 	.content-box {
 			flex: 1;

@@ -10,7 +10,7 @@ export default{
 		// 传递过来的goods是商品对象
 	},
     mutations:{
-		addGoodsNum(state,goods){
+	   addGoodsNum(state,goods){
                   const findResult = state.cart.find(x => x.goods_id === goods.goods_id)
                   if (!findResult) {
                  state.cart.push(goods)
@@ -25,11 +25,8 @@ export default{
 	   saveToStorage(state){
 		   // console.log('state本地化',state.cart)
 		   uni.setStorageSync('cart',JSON.stringify(state.cart))
-		  
 	   },
-	   
 	   updateGoodsState(state,goods){
-		  
 		   const findResult=state.cart.filter(item=>item.goods_id===goods.goods_id)
 		   // console.log('findResult',findResult)
 		   if(findResult){
@@ -49,6 +46,10 @@ export default{
 	   deleteGoodsById(state,goods_id){
 		   state.cart=state.cart.filter(item=>item.goods_id!==goods_id)
 		   this.commit('m_cart/saveToStorage')
+	   },
+	   changeAllGoodsState(state,currentState){
+		   state.cart.forEach(item=>item.goods_state=currentState)
+		   this.commit('m_cart/saveToStorage')
 	   }
 	
 	},
@@ -63,8 +64,18 @@ export default{
 	  },
 	  getGoodsNums(state){
 		 return  state.cart.length
-	  }
-		  
+	  },
+	  checkAll(state){
+		  return state.cart.every(item=>item.goods_state)
+	  },
+	  checkedCount(state){
+		  return state.cart.filter(item=>item.goods_state).reduce((pre,item)=>{return pre+=item.goods_count},0)
+	  },
+	  sumPrice(state){
+		 
+		 return state.cart.filter(item=>item.goods_state).reduce((pre,item)=>{ return pre+=item.goods_count*item.goods_price},0)
+	  },
+	 
 	  
 	}
 }

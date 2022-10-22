@@ -56,7 +56,15 @@
             "postcss" : false,
             "es6" : true
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "请求地址"
+            }
+        },
+		"requiredPrivateInfos":[
+			"chooseAddress"
+		]
     },
     "mp-alipay" : {
         "usingComponents" : true
@@ -70,5 +78,10 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "2"
+    "vueVersion" : "2",
+    "h5" : {
+        "sdkConfigs" : {
+            "maps" : {}
+        }
+    }
 }
