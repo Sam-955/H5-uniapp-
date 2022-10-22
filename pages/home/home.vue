@@ -43,8 +43,11 @@
 </template>
 
 <script>
-  export default {
-    data() {
+	import {mapGetters} from "vuex"
+	// import badgeMix from '@/mixins/tabbar-badge.js'
+    export default {
+	  // mixins:[badgeMix],
+     data() {
       return {
         // 这是轮播图的数据列表
         swiperList: [],
@@ -97,7 +100,19 @@
 	  handleNavi(){
 		  uni.navigateTo({url:'/subpkg/goods_search/goods_search'})
 	  }
-    }
+    },
+    computed:{
+		...mapGetters('m_cart',['total'])
+	},
+	watch:{
+		total:{
+			immediate:true,
+			handler(newValue){
+				uni.setTabBarBadge({index:2,text:newValue+''})
+			}
+		}
+	},
+ 
   }
 </script>
 

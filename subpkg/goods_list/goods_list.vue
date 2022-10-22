@@ -1,21 +1,7 @@
 <template>
 	<view >
-		<view class="item" v-for="(item,index) in goodsList" :key="item.cat_id"  @click="gotoGoodsDetail(item.cat_id)" >
-			<!-- 左边图片 -->
-			<view class="left">
-				<image :src="item.goods_small_logo" style="width:100%;height:100%"></image>
-			</view>
-			<view class="right">
-	          <!-- 上下结构 -->
-				<view style="font-size:14px">
-					{{item.goods_name}}
-				</view>
-				<view style="color:red;font-size:18px">
-					<!-- 这里需要用计算属性 -->
-					￥{{item.goods_price | tofixed }}
-				</view>
-			</view>
-			<!-- 右边文字+价格 -->
+		<view v-for="(item,index) in goodsList" :key="item.cat_id"  @click="gotoGoodsDetail(item.cat_id)" >
+			<my-goods :goods_info="item" :showRadio="showRadio"></my-goods>
 		</view>
 	</view>
 </template>
@@ -35,6 +21,7 @@
 				total:0,
 				// 节流阀，防止再请求的时候再去请求
 				waitLoading:true,
+				showRadio:false
 				
 			};
 		},

@@ -75,7 +75,12 @@
 			},
 			modelValue(val) {
 				this.inputValue = +val;
-			}
+			},
+			inputValue(newValue,oldValue){
+				if(+newValue!==+oldValue && Number(newValue) && String(newValue).indexOf(".")===-1){
+					this.$emit("change",newValue)
+				}
+			},
 		},
 		created() {
 			if (this.value === 1) {
