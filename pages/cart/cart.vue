@@ -1,5 +1,5 @@
 <template>
-	<view v-if="cart.lenght>0">
+	<view v-if="cart.length>0">
 		<!-- 地址栏 -->
 		<my-address></my-address>
 		<!-- <view style='display:flex;justify-content:center;align-items:center;height:100px;border-bottom:1px solid lightgray'>
@@ -36,7 +36,9 @@
 
 <script>
 	import {mapGetters, mapState, mapMutations } from 'vuex'
+	import tabBarBadge from"@/mixins/tabbar-badge.js"
 	export default {
+		mixins:['tabBarBadge'],
 		data() {
 			return {
 				options1:[

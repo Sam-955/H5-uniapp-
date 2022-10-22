@@ -73,7 +73,13 @@ export default{
 	  },
 	  sumPrice(state){
 		 
-		 return state.cart.filter(item=>item.goods_state).reduce((pre,item)=>{ return pre+=item.goods_count*item.goods_price},0)
+		 return state.cart.filter(item=>item.goods_state).reduce((pre,item)=>{ 
+			 if(!item.goods_price){
+				 item.goods_price=0
+			 }
+			 return pre+=item.goods_count*item.goods_price
+			 
+			 },0)
 	  },
 	 
 	  

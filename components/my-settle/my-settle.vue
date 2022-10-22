@@ -1,5 +1,4 @@
 <template>
-	
 		<view class="bottom">
 			<view class="left">
 				<radio :checked="ifFullCheck" color="#C00000" @click='changeAllState'></radio>
@@ -9,7 +8,7 @@
 				合计:<text style="color:red">￥{{sumPrice}}</text>
 			</view>
 			<view class="right">
-		        <text style="" @click="sum">结算({{checkedCount}})</text>
+		        <text style="" @click="payment">结算({{checkedCount}})</text>
 			</view>
 		</view>
 
@@ -25,6 +24,8 @@
 		},
 		computed:{
 			...mapState('m_cart',['cart']),
+			...mapState('m_user',['token']),
+			...mapGetters('m_user',['addstr']),
 			...mapGetters('m_cart',['total','checkedCount','sumPrice']),
 			ifFullCheck(){
 				return this.total===this.checkedCount
@@ -36,8 +37,12 @@
 			changeAllState(){
 				this.changeAllGoodsState(!this.ifFullCheck)
 			},
-			sum(){
-				console.log('sumPrice',this.sumPrice)
+			payment(){
+				
+				if(!this.token)return uni.$showMsg('请先登录')
+				
+				if(!this.checkedCount)return uni.$showMsg('请选择要结算的商品')
+				if(!this.addstr)return uni.$showMsg('请选择收货地址')
 			}
 		},
 		
@@ -52,10 +57,12 @@
 	.bottom{
 		height:60px;
 		display:flex;
-		position:fixed;
+		position:sticky;
 		bottom:0;
 		left:0;
-		margin-left:5px;
+		background-color:white;
+		z-index:100;
+		margin-left:10px;
 		.left{
 			width:250rpx;
 			line-height:60px;

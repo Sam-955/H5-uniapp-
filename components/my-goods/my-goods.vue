@@ -13,7 +13,7 @@
 			<!-- 右边文字+价格 -->
 			<view style='display:flex;justify-content:space-between' >
 				<!-- 这里需要用计算属性 -->
-				<text style="color:red;font-size:18px;">￥{{goods_info.goods_price | tofixed }}</text>
+				<text style="color:red;font-size:18px;">￥{{goods_info.goods_price || '0' | tofixed }}</text>
 				<uni-number-box v-if='showNum' :min='1' :value="goods_info.goods_count" @change='changeNum'></uni-number-box>
 			</view>
 		</view>

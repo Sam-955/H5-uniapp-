@@ -9,7 +9,7 @@ export default{
 				this.setBadge()
 			}
 		}
-	}
+	},
 	methods:{
 	    setBadge(){
 			  // console.log('this.total',this.total)

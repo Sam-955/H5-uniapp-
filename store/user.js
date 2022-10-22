@@ -1,8 +1,11 @@
 export default{
 	namespaced:true,
-	state:()=>({address:JSON.parse(uni.setStorageSync('address') || "{}")}),
+	state:{
+		address:JSON.parse(uni.setStorageSync('address') || "{}"),
+	    toke:'',
+		userInfo:JSON.parse(uni.setStorageSync('userInfo') || "{}")
+		},
 	actions:{
-		
 	},
 	mutations:{
 		updateAddress(state,address){
@@ -10,6 +13,13 @@ export default{
 		},
 		saveAddress(state){
 			uni.setStorageSync('address',JSON.stringify(state.address))
+		},
+		updateUserInfo(state,userinfo){
+			state.userInfo=userinfo
+			this.commit("m_user/saveUserInfo")
+		},
+		saveUserInfo(state){
+			uni.setStorageSync('userInfo',state.userInfo)
 		}
 	},
 	getters:{
